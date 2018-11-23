@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  ATM.cpp
+  BankAccount.cpp
+  Lab4Testing.cpp
+c:\users\acer\desktop\programming projects\projects (c++)\lab4testing\lab4testing\lab4testing.cpp(61): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  Lab4Testing.vcxproj -> C:\Users\Acer\Desktop\Programming Projects\Projects (C++)\Lab4Testing\x64\Debug\Lab4Testing.exe
