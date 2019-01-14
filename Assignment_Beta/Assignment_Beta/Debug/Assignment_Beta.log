@@ -1,0 +1,7 @@
+﻿  Customer.cpp
+c:\users\acer\desktop\プログラミング プロジェクト\projects (c++)\assignment_beta\assignment_beta\customer.cpp(88): warning C4018: '<': signed/unsigned mismatch
+  Ticket.cpp
+  main.cpp
+  Generating Code...
+c:\users\acer\desktop\プログラミング プロジェクト\projects (c++)\assignment_beta\assignment_beta\customer.cpp(125): warning C4715: 'Customer::CalculatePrices': not all control paths return a value
+  Assignment_Beta.vcxproj -> C:\Users\Acer\Desktop\プログラミング プロジェクト\Projects (C++)\Assignment_Beta\Debug\Assignment_Beta.exe
