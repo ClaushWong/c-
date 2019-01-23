@@ -1,6 +1,5 @@
 #include "Customer.h"
 
-#include <iostream>
 using namespace std;
 
 Customer::Customer(string first, string last, string ID, string dob)
@@ -39,7 +38,7 @@ vector<Ticket> Customer::TicketPurchase() {
 
 vector<Ticket> Customer::TicketCancel() {
 	int id;
-
+	int confirm;
 	TicketDisplay(0);
 
 	cout << endl;
@@ -49,7 +48,13 @@ vector<Ticket> Customer::TicketCancel() {
 		cout << "Ticket ID : ";
 		cin >> id;
 
-		tickets.erase(tickets.begin() + id-1);
+		for (int x = 0; x < (int)tickets.size(); x++) {
+			if (tickets[x].getID() == id) {
+				confirm = x;
+				break;
+			}
+		}
+		tickets.erase(tickets.begin() + confirm);
 		cout << "Cancel Done.\n";
 	}
 	else {
