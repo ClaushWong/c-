@@ -4,6 +4,8 @@
 #include "Ticket.h"
 #include <string>
 #include <vector>
+#include <iostream>
+
 
 class Customer
 {
@@ -12,6 +14,7 @@ class Customer
 	std::string id;
 	std::string date_of_birth;
 	std::vector<Ticket> tickets;
+    //int static subTotal;
 
 	int CalculatePrices(int,int);
 
@@ -20,6 +23,7 @@ class Customer
 		std::vector<Ticket> TicketPurchase();
 		std::vector<Ticket> TicketCancel();
 		void TicketDisplay(int);
+        int TotalPrice();
 
 		std::string getFirst();
 		std::string getLast();
