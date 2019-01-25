@@ -1,6 +1,5 @@
 #include "Customer.h"
 
-#include <iostream>
 using namespace std;
 
 Customer::Customer(string first, string last, string ID, string dob)
@@ -15,7 +14,7 @@ vector<Ticket> Customer::TicketPurchase() {
 	cout << endl;
 
 	while (select < 1 || select > 3) {
-		cout << "Which types of data you want?\n1. Premium ($15 per)\n2. Standard ($10 per)\n3. Special ($5 per)\n";
+		cout << "Which types of data you want?\n1. Premium (RM15 per)\n2. Standard (RM10 per)\n3. Special (RM5 per)\n";
 		cout << "Selection : ";
 		cin >> select;
 	}
@@ -29,6 +28,7 @@ vector<Ticket> Customer::TicketPurchase() {
 	}
 
 	int price = CalculatePrices(select,howmuch);
+    //subTotal = price;
 
 	Ticket proto(id,select, howmuch, price);
 	tickets.push_back(proto);
@@ -40,6 +40,7 @@ vector<Ticket> Customer::TicketPurchase() {
 vector<Ticket> Customer::TicketCancel() {
 	int id;
 
+	int confirm;
 	TicketDisplay(0);
 
 	cout << endl;
@@ -49,9 +50,17 @@ vector<Ticket> Customer::TicketCancel() {
 		cout << "Ticket ID : ";
 		cin >> id;
 
-		tickets.erase(tickets.begin() + id-1);
-		cout << "Cancel Done.\n";
+		//tickets.erase(tickets.begin() + id-1);
+		for(int x = 0; x < (int)tickets.size(); x++){
+            if(tickets[x].getID() == id) {
+                confirm = x;
+                break;
+            }
+		}
+		tickets.erase(tickets.begin() + confirm);
+		cout << "Canceled.\n";
 	}
+
 	else {
 		cout << "No ticket is being purchased yet.\n";
 	}
@@ -85,7 +94,7 @@ void Customer::TicketDisplay(int cond) {
 	}
 
 	if (!tickets.empty()){
-		for (int i = 0; i < tickets.size(); i++) {
+		for (int i = 0; i < (int)tickets.size(); i++) {
 			cout << "Ticket ID     : " << tickets[i].getID() << endl;
 			cout << "Ticket Types  : ";
 			switch (tickets[i].getTypes()) {
@@ -100,7 +109,8 @@ void Customer::TicketDisplay(int cond) {
 					break;
 			}
 			cout << "Ticket Amount : " << tickets[i].getAmount() << endl;
-			cout << "Ticket Prices : " << tickets[i].getPrices() << endl;
+			cout << "Ticket Prices : RM" << tickets[i].getPrices() << endl;
+			//cout << "Total Ticket(s) Prices: RM" << TotalPrice()<< endl;
 			cout << endl;
 		}
 		cout << endl;
@@ -122,4 +132,16 @@ int Customer::CalculatePrices(int typ, int amo) {
 			return 5 * amo;
 			break;
 	}
+	return 0;
 }
+
+int Customer::TotalPrice(){
+        int sum_of_elems = 0;
+        for (int i = 0; i < (int) tickets.size(); i++) {
+            sum_of_elems += tickets[i].getPrices();
+        }
+    return sum_of_elems;
+};
+
+
+//int Customer::TotalPrice(){}
